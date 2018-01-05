@@ -3,13 +3,40 @@ About tpot
 
 Home: https://rhiever.github.io/tpot/
 
-Package license: GPLv3
+Package license: GPL-3.0
 
 Feedstock license: BSD 3-Clause
 
 Summary: A Python tool that automatically creates and optimizes Machine Learning pipelines using genetic programming.
 
+Consider TPOT your Data Science Assistant. TPOT is a Python Automated
+Machine Learning tool that optimizes machine learning pipelines using
+genetic programming.
 
+TPOT will automate the most tedious part of machine learning by
+intelligently exploring thousands of possible pipelines to find the best
+one for your data.
+
+Once TPOT is finished searching (or you get tired of waiting), it provides
+you with the Python code for the best pipeline it found so you can tinker
+with the pipeline from there.
+
+TPOT is built on top of scikit-learn, so all of the code it generates
+should look familiar... if you're familiar with scikit-learn, anyway.
+
+TPOT is still under active development and we encourage you to check back
+on this repository regularly for updates.
+
+
+Current build status
+====================
+
+All platforms: [![Circle CI](https://circleci.com/gh/conda-forge/tpot-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/tpot-feedstock)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/tpot/badges/version.svg)](https://anaconda.org/conda-forge/tpot)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/tpot/badges/downloads.svg)](https://anaconda.org/conda-forge/tpot)
 
 Installing tpot
 ===============
@@ -33,7 +60,6 @@ conda search tpot --channel conda-forge
 ```
 
 
-
 About conda-forge
 =================
 
@@ -55,6 +81,7 @@ To manage the continuous integration and simplify feedstock maintenance
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
+For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -67,18 +94,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/tpot-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/tpot-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/tpot-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/tpot-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/tpot-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/tpot-feedstock/branch/master)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/tpot/badges/version.svg)](https://anaconda.org/conda-forge/tpot)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/tpot/badges/downloads.svg)](https://anaconda.org/conda-forge/tpot)
 
 
 Updating tpot-feedstock
