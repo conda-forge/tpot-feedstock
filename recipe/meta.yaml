@@ -1,6 +1,6 @@
 {% set name = "TPOT" %}
-{% set version = "0.6.4" %}
-{% set sha256 = "00e46e397d0d64dac7fba60b60890031b89e5e19b3cd80ee2e094c819315bbc4" %}
+{% set version = "0.9.1" %}
+{% set sha256 = "293ee765a1258822c835b50e8eae5cf72462549c771c5e421a9883c571a09a13" %}
 
 package:
   name: {{ name|lower }}
@@ -13,6 +13,7 @@ source:
 
 build:
   number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record record.txt
   entry_points:
     - tpot=tpot:main
@@ -23,32 +24,61 @@ requirements:
     - setuptools
 
   run:
-    - python
-    - numpy >=1.9.3
-    - pandas >=0.16.2
-    - scikit-learn >=0.16.1
     - deap >=1.0
-    - tqdm
-    - update_checker
+    - numpy >=1.12.1
+    - pandas >=0.20.2
+    - python
+    - scikit-learn >=0.18.1
+    - scipy >=0.19.0
+    - stopit >=1.1.1
+    - tqdm >=4.11.2
+    - update_checker >=0.16
 
 test:
   imports:
     - tpot
-    - tpot.operators
-    - tpot.operators.classifiers
-    - tpot.operators.preprocessors
-    - tpot.operators.selectors
-
+    - tpot.base
+    - tpot.builtins
+    - tpot.config
+    - tpot.decorators
+    - tpot.driver
+    - tpot.export_utils
+    - tpot.gp_deap
+    - tpot.gp_types
+    - tpot.metrics
+    - tpot.operator_utils
+    - tpot.tpot
   commands:
     - tpot --help
+    - tpot --version
 
 about:
   home: https://rhiever.github.io/tpot/
-  license: GPLv3
+  license: GPL-3.0
+  license_family: GPL
   license_file: LICENSE
   summary: 'A Python tool that automatically creates and optimizes Machine Learning pipelines using genetic programming.'
   dev_url: https://github.com/rhiever/tpot
+  description: |
+    Consider TPOT your Data Science Assistant. TPOT is a Python Automated
+    Machine Learning tool that optimizes machine learning pipelines using
+    genetic programming.
+
+    TPOT will automate the most tedious part of machine learning by
+    intelligently exploring thousands of possible pipelines to find the best
+    one for your data.
+
+    Once TPOT is finished searching (or you get tired of waiting), it provides
+    you with the Python code for the best pipeline it found so you can tinker
+    with the pipeline from there.
+
+    TPOT is built on top of scikit-learn, so all of the code it generates
+    should look familiar... if you're familiar with scikit-learn, anyway.
+
+    TPOT is still under active development and we encourage you to check back
+    on this repository regularly for updates.
 
 extra:
   recipe-maintainers:
     - proinsias
+    - bollwyvl
