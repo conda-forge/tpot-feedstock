@@ -1,6 +1,6 @@
 {% set name = "TPOT" %}
-{% set version = "0.9.1" %}
-{% set sha256 = "293ee765a1258822c835b50e8eae5cf72462549c771c5e421a9883c571a09a13" %}
+{% set version = "0.9.2" %}
+{% set sha256 = "0d1340c73367153d6b8c690c4e66be7c45066e5fe41dbb030a4a62a335565497" %}
 
 package:
   name: {{ name|lower }}
@@ -35,6 +35,14 @@ requirements:
     - update_checker >=0.16
 
 test:
+  requires:
+    - nose
+    - python
+    - py-xgboost
+    - scikit-mdr
+    - skrebate
+  source_files:
+    - tests
   imports:
     - tpot
     - tpot.base
@@ -51,6 +59,7 @@ test:
   commands:
     - tpot --help
     - tpot --version
+    - nosetests tests
 
 about:
   home: https://rhiever.github.io/tpot/
