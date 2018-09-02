@@ -1,6 +1,6 @@
 {% set name = "TPOT" %}
-{% set version = "0.9.3" %}
-{% set sha256 = "718ecff27750b67512a4ad5b217d61d0705204dfafacc34c8aa72d2650aae2f5" %}
+{% set version = "0.9.5" %}
+{% set sha256 = "84998cba68a8691a8a563df619558cc8943e1c9f1807ebc4de555558ff465b68" %}
 
 package:
   name: {{ name|lower }}
