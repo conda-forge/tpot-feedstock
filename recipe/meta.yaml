@@ -19,8 +19,7 @@ build:
 requirements:
   host:
     - python
-    - setuptools
-
+    - pip
   run:
     - deap >=1.0
     - numpy >=1.12.1
