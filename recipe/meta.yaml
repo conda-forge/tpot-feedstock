@@ -12,20 +12,20 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   entry_points:
     - tpot=tpot:main
 
 requirements:
-  build:
+  host:
     - python
     - setuptools
 
   run:
     - deap >=1.0
-    - numpy >=1.12.1
+    - numpy
     - pandas >=0.20.2
     - python
     - scikit-learn >=0.18.1
