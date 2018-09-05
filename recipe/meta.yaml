@@ -1,28 +1,24 @@
-{% set name = "TPOT" %}
 {% set version = "0.9.5" %}
 {% set sha256 = "84998cba68a8691a8a563df619558cc8943e1c9f1807ebc4de555558ff465b68" %}
 
 package:
-  name: {{ name|lower }}
+  name: tpot
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/T/TPOT/TPOT-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  noarch: python
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 1
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"
   entry_points:
     - tpot=tpot:main
 
 requirements:
-  build:
+  host:
     - python
-    - setuptools
-
+    - pip
   run:
     - deap >=1.0
     - numpy >=1.12.1
