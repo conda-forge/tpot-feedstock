@@ -59,12 +59,12 @@ test:
     - nosetests tests
 
 about:
-  home: https://rhiever.github.io/tpot/
+  home: https://epistasislab.github.io/tpot/
   license: GPL-3.0
   license_family: GPL
   license_file: LICENSE
   summary: 'A Python tool that automatically creates and optimizes Machine Learning pipelines using genetic programming.'
-  dev_url: https://github.com/rhiever/tpot
+  dev_url: https://github.com/EpistasisLab/tpot
   description: |
     Consider TPOT your Data Science Assistant. TPOT is a Python Automated
     Machine Learning tool that optimizes machine learning pipelines using

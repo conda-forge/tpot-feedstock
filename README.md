@@ -1,7 +1,7 @@
 About tpot
 ==========
 
-Home: https://rhiever.github.io/tpot/
+Home: https://epistasislab.github.io/tpot/
 
 Package license: GPL-3.0
 
