@@ -33,11 +33,14 @@ requirements:
 
 test:
   requires:
+    - dask >=0.18.2
+    - dask-ml >=0.9.0
+    - distributed >=1.22.1
     - nose
-    - python
     - py-xgboost
-    - scikit-mdr
-    - skrebate
+    - python
+    - scikit-mdr >=0.4.4
+    - skrebate >=0.3.4
   source_files:
     - tests
   imports:
@@ -64,7 +67,7 @@ test:
 
 about:
   home: https://epistasislab.github.io/tpot/
-  license: GPL-3.0
+  license: LGPL-3.0
   license_family: GPL
   license_file: LICENSE
   summary: 'A Python tool that automatically creates and optimizes Machine Learning pipelines using genetic programming.'
