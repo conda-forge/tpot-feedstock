@@ -56,7 +56,11 @@ test:
   commands:
     - tpot --help
     - tpot --version
-    - nosetests tests
+    - >
+      nosetests tests 
+      --exclude test_StackingEstimator_4 
+      --exclude test_score_3 
+      --exclude test_sample_weight_func
 
 about:
   home: https://epistasislab.github.io/tpot/
