@@ -1,5 +1,5 @@
-{% set version = "0.9.5" %}
-{% set sha256 = "84998cba68a8691a8a563df619558cc8943e1c9f1807ebc4de555558ff465b68" %}
+{% set version = "0.9.6" %}
+{% set sha256 = "38fda283fd0e08b8dc1977a6ecc4f0ec8c5131c31f39911a7fc1f7c57ccf3aed" %}
 
 package:
   name: tpot
@@ -10,7 +10,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1002
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"
   entry_points:
     - tpot=tpot:main
