@@ -1,5 +1,5 @@
-{% set version = "0.10.0" %}
-{% set sha256 = "227616883a37a92a2021c5efc4163bef102dea47dd35c3fe50d54e0bb1a25e2c" %}
+{% set version = "0.10.1" %}
+{% set sha256 = "22a3c380421ef6330802a52a764f0fa6ac0253cbb4b2879c950525d7c4309966" %}
 
 package:
   name: tpot
