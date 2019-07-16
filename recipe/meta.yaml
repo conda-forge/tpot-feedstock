@@ -21,13 +21,14 @@ requirements:
     - pip
   run:
     - deap >=1.0
+    - joblib >=0.10.3
     - numpy >=1.12.1
     - pandas >=0.20.2
     - python
     - scikit-learn >=0.18.1
     - scipy >=0.19.0
     - stopit >=1.1.1
-    - tqdm >=4.11.2
+    - tqdm >=4.26.0
     - update_checker >=0.16
     - pywin32  # [win]
 
@@ -60,9 +61,9 @@ test:
     - tpot --help
     - tpot --version
     - >
-      nosetests tests 
-      --exclude test_StackingEstimator_4 
-      --exclude test_score_3 
+      nosetests tests
+      --exclude test_StackingEstimator_4
+      --exclude test_score_3
       --exclude test_sample_weight_func
 
 about:
