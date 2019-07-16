@@ -35,13 +35,15 @@ requirements:
 test:
   requires:
     - dask >=0.18.2
-    - dask-ml >=0.9.0
     - distributed >=1.22.1
     - nose
     - py-xgboost
     - python
     - scikit-mdr >=0.4.4
     - skrebate >=0.3.4
+    # https://github.com/EpistasisLab/tpot/commit/b134627408a0ed0f5fc57b3339b78bf646a534b4
+    - dask-ml >=0.9.0  # [py3k]
+    - dask-ml <0.13.0  # [py2k]
   source_files:
     - tests
   imports:
