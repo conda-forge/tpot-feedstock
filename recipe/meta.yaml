@@ -1,5 +1,5 @@
-{% set version = "0.10.1" %}
-{% set sha256 = "22a3c380421ef6330802a52a764f0fa6ac0253cbb4b2879c950525d7c4309966" %}
+{% set version = "0.10.2" %}
+{% set sha256 = "276b58ac5b5dc67faf1340c36ac6135f2e717c0a8e04ab6ae382b56c34addfba" %}
 
 package:
   name: tpot
@@ -21,26 +21,29 @@ requirements:
     - pip
   run:
     - deap >=1.0
+    - joblib >=0.10.3
     - numpy >=1.12.1
     - pandas >=0.20.2
     - python
     - scikit-learn >=0.18.1
     - scipy >=0.19.0
     - stopit >=1.1.1
-    - tqdm >=4.11.2
+    - tqdm >=4.26.0
     - update_checker >=0.16
     - pywin32  # [win]
 
 test:
   requires:
     - dask >=0.18.2
-    - dask-ml >=0.9.0
     - distributed >=1.22.1
     - nose
     - py-xgboost
     - python
     - scikit-mdr >=0.4.4
     - skrebate >=0.3.4
+    # https://github.com/EpistasisLab/tpot/commit/b134627408a0ed0f5fc57b3339b78bf646a534b4
+    - dask-ml >=0.9.0  # [py3k]
+    - dask-ml <0.13.0  # [py2k]
   source_files:
     - tests
   imports:
@@ -60,9 +63,9 @@ test:
     - tpot --help
     - tpot --version
     - >
-      nosetests tests 
-      --exclude test_StackingEstimator_4 
-      --exclude test_score_3 
+      nosetests tests
+      --exclude test_StackingEstimator_4
+      --exclude test_score_3
       --exclude test_sample_weight_func
 
 about:
