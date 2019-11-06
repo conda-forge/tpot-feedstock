@@ -1,5 +1,4 @@
 {% set version = "0.11.0" %}
-{% set sha256 = "5a9c65cba0d605040a12ed3223ccb40da65430267d4fa5782c6236a88cd2a15c" %}
 
 package:
   name: tpot
@@ -7,66 +6,49 @@ package:
 
 source:
   url: https://pypi.io/packages/source/T/TPOT/TPOT-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 5a9c65cba0d605040a12ed3223ccb40da65430267d4fa5782c6236a88cd2a15c
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   entry_points:
     - tpot=tpot:main
 
 requirements:
   host:
-    - python
+    - python >=3.5
     - pip
   run:
-    - deap >=1.0
-    - joblib >=0.10.3
-    - numpy >=1.12.1
-    - pandas >=0.20.2
-    - python
-    - scikit-learn >=0.18.1
-    - scipy >=0.19.0
+    - deap >=1.2
+    - joblib >=0.13.2
+    - numpy >=1.16.3
+    - pandas >=0.24.2
+    - python >=3.5
+    - scikit-learn >=0.21.0
+    - scipy >=1.3.1
     - stopit >=1.1.1
-    - tqdm >=4.26.0
+    - tqdm >=4.36.1
     - update_checker >=0.16
-    - pywin32  # [win]
 
 test:
   requires:
     - dask >=0.18.2
+    - dask-ml >=1.0.0
     - distributed >=1.22.1
     - nose
     - py-xgboost
     - python
     - scikit-mdr >=0.4.4
     - skrebate >=0.3.4
-    # https://github.com/EpistasisLab/tpot/commit/b134627408a0ed0f5fc57b3339b78bf646a534b4
-    - dask-ml >=0.9.0  # [py3k]
-    - dask-ml <0.13.0  # [py2k]
   source_files:
     - tests
   imports:
     - tpot
-    - tpot.base
-    - tpot.builtins
-    - tpot.config
-    - tpot.decorators
-    - tpot.driver
-    - tpot.export_utils
-    - tpot.gp_deap
-    - tpot.gp_types
-    - tpot.metrics
-    - tpot.operator_utils
-    - tpot.tpot
   commands:
     - tpot --help
     - tpot --version
-    - >
-      nosetests tests
-      --exclude test_StackingEstimator_4
-      --exclude test_score_3
-      --exclude test_sample_weight_func
+    - nosetests tests
 
 about:
   home: https://epistasislab.github.io/tpot/
