@@ -37,7 +37,7 @@ test:
     - dask-ml >=1.0.0
     - distributed >=1.22.1
     - nose
-    - py-xgboost
+    - py-xgboost  # [not win]
     - python
     - scikit-mdr >=0.4.4
     - skrebate >=0.3.4
@@ -50,7 +50,7 @@ test:
     - python -m pip check
     - tpot --help
     - tpot --version
-    - nosetests tests
+    - nosetests tests -s -v -e test_dask_matches -e test_StackingEstimator_4 -e test_sample_weight_func
 
 about:
   home: https://epistasislab.github.io/tpot/
