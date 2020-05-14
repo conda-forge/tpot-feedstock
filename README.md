@@ -3,7 +3,7 @@ About tpot
 
 Home: https://epistasislab.github.io/tpot/
 
-Package license: LGPL-3.0
+Package license: LGPL-3.0-or-later
 
 Feedstock license: BSD 3-Clause
 
