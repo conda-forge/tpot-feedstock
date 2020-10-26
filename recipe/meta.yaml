@@ -1,4 +1,4 @@
-{% set version = "0.11.5" %}
+{% set version = "0.11.6" %}
 
 package:
   name: tpot
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/T/TPOT/TPOT-{{ version }}.tar.gz
-  sha256: 909be08b29165ce48de5e5d2e3fd73fee9aeeaf1030f2e0912ce0f0bd9c3d2f3
+  sha256: 8a00f21307641a37d407bbd2f28d3e28393d54558f94e9e1e694cc998aa0ff7d
 
 build:
   number: 0
