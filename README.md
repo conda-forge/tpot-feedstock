@@ -1,13 +1,15 @@
 About tpot
 ==========
 
-Home: https://epistasislab.github.io/tpot/
+Home: https://epistasislab.github.io/tpot
 
 Package license: LGPL-3.0-or-later
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/tpot-feedstock/blob/master/LICENSE.txt)
 
 Summary: A Python tool that automatically creates and optimizes Machine Learning pipelines using genetic programming.
+
+Development: https://github.com/EpistasisLab/tpot
 
 Consider TPOT your Data Science Assistant. TPOT is a Python Automated
 Machine Learning tool that optimizes machine learning pipelines using
