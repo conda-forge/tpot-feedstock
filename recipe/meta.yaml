@@ -9,7 +9,7 @@ source:
   sha256: 985f13758a8f2f650add5428185dcbb7fbb0ce2be11dd7f91e515f750319dedb
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
@@ -24,6 +24,7 @@ requirements:
     - joblib >=0.13.2
     - numpy >=1.16.3
     - pandas >=0.24.2
+    - py-xgboost >=0.90
     - python >=3.5
     - scikit-learn >=0.22.0
     - scipy >=1.3.1
@@ -38,7 +39,6 @@ test:
     - distributed >=1.22.1
     - nose
     - pip
-    - py-xgboost  # [not win]
     - python
     - pytorch-cpu
     - scikit-mdr >=0.4.4
