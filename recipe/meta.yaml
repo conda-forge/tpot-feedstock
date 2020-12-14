@@ -1,4 +1,4 @@
-{% set version = "0.11.6.post2" %}
+{% set version = "0.11.6.post3" %}
 
 package:
   name: tpot
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/T/TPOT/TPOT-{{ version }}.tar.gz
-  sha256: 985f13758a8f2f650add5428185dcbb7fbb0ce2be11dd7f91e515f750319dedb
+  sha256: 99c47719cd1dce39f3d47bac1b39b66603e1b48a8336c1e1e2648c2427a723c2
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
@@ -43,6 +43,8 @@ test:
     - pytorch-cpu
     - scikit-mdr >=0.4.4
     - skrebate >=0.3.4
+    # TODO: remove after https://github.com/conda-forge/pytorch-cpu-feedstock/issues/24
+    - future
   source_files:
     - tests
   imports:
