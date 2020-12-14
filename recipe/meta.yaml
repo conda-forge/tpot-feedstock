@@ -43,6 +43,8 @@ test:
     - pytorch-cpu
     - scikit-mdr >=0.4.4
     - skrebate >=0.3.4
+    # TODO: remove after https://github.com/conda-forge/pytorch-cpu-feedstock/issues/24
+    - future
   source_files:
     - tests
   imports:
