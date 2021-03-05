@@ -54,10 +54,14 @@ outputs:
         - pip
       imports:
         - tpot
+        - tpot.operators
+        - tpot.operators.classifiers
+        - tpot.operators.preprocessors
+        - tpot.operators.selectors
       commands:
         - pip check
-        - tpot --help
         - tpot --version
+        - tpot --help
 
   - name: tpot-skrebate
     build:
@@ -181,11 +185,11 @@ outputs:
         - tests
       commands:
         - pip check
-        - nosetests tests
+        - nosetests tests -s -v -e test_dask_matches -e test_StackingEstimator_4 -e test_sample_weight_func -e one_hot_encoder_tests -e test_score_2
 
 about:
   home: https://epistasislab.github.io/tpot
-  license: LGPL-3.0
+  license: LGPL-3.0-or-later
   license_family: GPL
   license_file: LICENSE
   summary: 'A Python tool that automatically creates and optimizes Machine Learning pipelines using genetic programming.'
