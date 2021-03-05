@@ -1,7 +1,9 @@
 {% set version = "0.11.7" %}
+{% set build_number = "1" %}
+{% set tpot_python = ">=3.5" %}
 
 package:
-  name: tpot
+  name: tpot-build
   version: {{ version }}
 
 source:
@@ -9,57 +11,182 @@ source:
   sha256: 64ff1845efdec3d9c70b35587f719cc0821722f27d16f542f83bf81f448e3ff1
 
 build:
-  number: 0
+  number: {{ build_number }}
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
-  entry_points:
-    - tpot=tpot:main
 
 requirements:
   host:
-    - python >=3.5
-    - pip
-  run:
-    - deap >=1.2
-    - joblib >=0.13.2
-    - numpy >=1.16.3
-    - pandas >=0.24.2
-    - py-xgboost >=1.1.0
-    - python >=3.5
-    - scikit-learn >=0.22.0
-    - scipy >=1.3.1
-    - stopit >=1.1.2
-    - tqdm >=4.36.1
-    - update_checker >=0.16
+    - python {{ tpot_python }}
 
 test:
-  requires:
-    - dask >=0.18.2
-    - dask-ml >=1.0.0
-    - distributed >=1.22.1
-    - imbalanced-learn >=0.7.0
-    - nose
-    - pip
-    - python
-    - pytorch-cpu
-    - scikit-mdr >=0.4.4
-    - skrebate >=0.3.4
-  source_files:
-    - tests
-  imports:
-    - tpot
   commands:
-    - python -m pip check
-    - tpot --help
-    - tpot --version
-    - nosetests tests -s -v -e test_dask_matches -e test_StackingEstimator_4 -e test_sample_weight_func -e one_hot_encoder_tests -e test_score_2
+    - echo "the subpackages are tested"
+
+outputs:
+  - name: tpot
+
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: {{ PYTHON }} -m pip install . --no-deps -vv
+      entry_points:
+        - tpot = tpot:main
+
+    requirements:
+      host:
+        - pip
+        - python {{ tpot_python }}
+      run:
+        - deap >=1.2
+        - joblib >=0.13.2
+        - numpy >=1.16.3
+        - pandas >=0.24.2
+        - py-xgboost >=1.1.0
+        - python {{ tpot_python }}
+        - scikit-learn >=0.22.0
+        - scipy >=1.3.1
+        - stopit >=1.1.2
+        - tqdm >=4.36.1
+        - update_checker >=0.16
+
+    test:
+      requires:
+        - pip
+      imports:
+        - tpot
+      commands:
+        - pip check
+        - tpot --help
+        - tpot --version
+
+  - name: tpot-skrebate
+    build:
+      number: {{ build_number }}
+      noarch: python
+    requirements:
+      host:
+        - python {{ tpot_python }}
+      run:
+        - skrebate >=0.3.4
+    test:
+      imports:
+        - tpot
+      requires:
+        - pip
+      commands:
+        - pip check
+
+  - name: tpot-mdr
+    build:
+      number: {{ build_number }}
+      noarch: python
+    requirements:
+      host:
+        - python {{ tpot_python }}
+      run:
+        - {{ pin_subpackage('tpot', exact=True) }}
+        - python {{ tpot_python }}
+        - scikit-mdr >=0.4.4
+    test:
+      imports:
+        - tpot
+      requires:
+        - pip
+      commands:
+        - pip check
+
+  - name: tpot-dask
+    build:
+      number: {{ build_number }}
+      noarch: python
+    requirements:
+      host:
+        - python {{ tpot_python }}
+      run:
+        - {{ pin_subpackage('tpot', exact=True) }}
+        - dask >=0.18.2
+        - dask-ml >=1.0.0
+        - distributed >=1.22.1
+        - python {{ tpot_python }}
+    test:
+      imports:
+        - tpot
+      requires:
+        - pip
+      commands:
+        - pip check
+
+  - name: tpot-torch
+    build:
+      number: {{ build_number }}
+      noarch: python
+    requirements:
+      host:
+        - python {{ tpot_python }}
+      run:
+        - {{ pin_subpackage('tpot', exact=True) }}
+        - python {{ tpot_python }}
+        - pytorch
+    test:
+      imports:
+        - tpot.builtins.nn
+      requires:
+        - pip
+      commands:
+        - pip check
+
+  - name: tpot-imblearn
+    build:
+      number: {{ build_number }}
+      noarch: python
+    requirements:
+      host:
+        - python {{ tpot_python }}
+      run:
+        - {{ pin_subpackage('tpot', exact=True) }}
+        - imbalanced-learn >=0.7.0
+        - python {{ tpot_python }}
+    test:
+      imports:
+        - tpot
+      requires:
+        - pip
+      commands:
+        - pip check
+
+  - name: tpot-full
+    build:
+      number: {{ build_number }}
+      noarch: python
+    requirements:
+      host:
+        - python {{ tpot_python }}
+      run:
+        - {{ pin_subpackage('tpot-dask', exact=True) }}
+        - {{ pin_subpackage('tpot-imblearn', exact=True) }}
+        - {{ pin_subpackage('tpot-mdr', exact=True) }}
+        - {{ pin_subpackage('tpot-skrebate', exact=True) }}
+        - {{ pin_subpackage('tpot-torch', exact=True) }}
+        - {{ pin_subpackage('tpot', exact=True) }}
+        - python {{ tpot_python }}
+    test:
+      imports:
+        - tpot
+      requires:
+        - nose
+        - pip
+      source_files:
+        - tests
+      commands:
+        - pip check
+        - nosetests tests
 
 about:
   home: https://epistasislab.github.io/tpot
-  license: LGPL-3.0-or-later
+  license: LGPL-3.0
   license_family: GPL
   license_file: LICENSE
-  summary: A Python tool that automatically creates and optimizes Machine Learning pipelines using genetic programming.
+  summary: 'A Python tool that automatically creates and optimizes Machine Learning pipelines using genetic programming.'
   dev_url: https://github.com/EpistasisLab/tpot
   description: |
     Consider TPOT your Data Science Assistant. TPOT is a Python Automated
