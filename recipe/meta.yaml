@@ -54,10 +54,6 @@ outputs:
         - pip
       imports:
         - tpot
-        - tpot.operators
-        - tpot.operators.classifiers
-        - tpot.operators.preprocessors
-        - tpot.operators.selectors
       commands:
         - pip check
         - tpot --version
