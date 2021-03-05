@@ -67,6 +67,8 @@ outputs:
       host:
         - python {{ tpot_python }}
       run:
+        - {{ pin_subpackage('tpot', exact=True) }}
+        - python {{ tpot_python }}
         - skrebate >=0.3.4
     test:
       imports:
