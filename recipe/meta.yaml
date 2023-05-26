@@ -169,6 +169,8 @@ outputs:
       requires:
         - nose
         - pip
+        # TODO: newer versions fail due to (pre-announced) hard deprecation of `load_boston`
+        - scikit-learn <1.2.0
       source_files:
         - tests
       commands:
