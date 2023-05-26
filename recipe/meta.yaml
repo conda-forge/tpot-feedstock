@@ -169,8 +169,9 @@ outputs:
       requires:
         - nose
         - pip
-        # TODO: newer versions fail due to (pre-announced) hard deprecation of `load_boston`
+        # TODO: newer versions fail due to (pre-announced) hard deprecation of `load_boston`, and upstream pins break `dask-ml`
         - scikit-learn <1.2.0
+        - dask-ml <2023.3.24
       source_files:
         - tests
       commands:
