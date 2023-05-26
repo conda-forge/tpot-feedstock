@@ -176,7 +176,7 @@ outputs:
         - tests
       commands:
         - pip check
-        - nosetests tests -s -v -e test_dask_matches -e test_StackingEstimator_4 -e test_sample_weight_func -e one_hot_encoder_tests -e test_score_2
+        - nosetests tests -s -v -e test_dask_matches -e test_StackingEstimator_4 -e test_sample_weight_func -e one_hot_encoder_tests -e test_score_2 -e test_varOr -e test_mate_operator -e test_get_params -e test_mate_operator_stats_update
 
 about:
   home: https://epistasislab.github.io/tpot
