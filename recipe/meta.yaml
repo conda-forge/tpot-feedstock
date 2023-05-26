@@ -1,5 +1,6 @@
-{% set version = "0.11.7" %}
-{% set build_number = "1" %}
+{% set tpot_python = ">=3.5" %}
+{% set version = "0.12.0" %}
+{% set build_number = 0 %}
 {% set tpot_python = ">=3.5" %}
 
 package:
@@ -8,7 +9,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/T/TPOT/TPOT-{{ version }}.tar.gz
-  sha256: 64ff1845efdec3d9c70b35587f719cc0821722f27d16f542f83bf81f448e3ff1
+  sha256: 94cd41df3760a12afab71229538d6d9d71f9538f4d0a8660ea5f23729415931b
 
 build:
   number: {{ build_number }}
@@ -188,7 +189,7 @@ about:
   license: LGPL-3.0-or-later
   license_family: GPL
   license_file: LICENSE
-  summary: 'A Python tool that automatically creates and optimizes Machine Learning pipelines using genetic programming.'
+  summary: A Python tool that automatically creates and optimizes Machine Learning pipelines using genetic programming.
   dev_url: https://github.com/EpistasisLab/tpot
   description: |
     Consider TPOT your Data Science Assistant. TPOT is a Python Automated
