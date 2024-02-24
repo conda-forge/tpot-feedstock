@@ -160,6 +160,8 @@ outputs:
         - coverage
         - nose
         - pip
+        # `nose` does not work with 3.12, and tests do not run under pytest/unittest
+        . python <3.12 
       source_files:
         - tests
       commands:
