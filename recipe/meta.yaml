@@ -30,7 +30,8 @@ outputs:
   - name: tpot
     build:
       noarch: python
-      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+      script:
+        - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
       entry_points:
         - tpot = tpot:main
     requirements:
@@ -161,7 +162,7 @@ outputs:
         - nose
         - pip
         # `nose` does not work with 3.12, and tests do not run under pytest/unittest
-        . python <3.12 
+        - python <3.12
       source_files:
         - tests
       commands:
@@ -169,6 +170,7 @@ outputs:
         -
           coverage run --source=tpot --branch -m
             nose tests -s -v
+              -I test_tpot.py
               -e test_dask_matches
               -e test_StackingEstimator_4
               -e test_sample_weight_func
