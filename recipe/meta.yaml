@@ -117,7 +117,7 @@ outputs:
       run:
         - {{ min_python }}
         - {{ pin_subpackage('tpot', max_pin="x.x.x") }}
-        - pytorch
+        - pytorch 1.13.*
     test:
       imports:
         - tpot.builtins.nn
