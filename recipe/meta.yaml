@@ -8,7 +8,7 @@
 
 # handle unimportable tests
 {% set delete_tests = [
-  "test/tpot_tests.py",
+  "tests/tpot_tests.py",
   "tests/stacking_estimator_tests.py",
 ] %}
 
