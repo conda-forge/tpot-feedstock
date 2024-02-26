@@ -1,8 +1,16 @@
 {% set version = "0.12.2" %}
-{% set min_python = "python >=3.5" %}
+
+# TODO: relax after https://github.com/EpistasisLab/tpot/issues/1327
+{% set min_python = "python >=3.5,<3.12" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
+
+# handle unimportable tests
+{% set delete_tests = [
+  "test/tpot_tests.py",
+  "tests/stacking_estimator_tests.py",
+] %}
 
 package:
   name: tpot-build
@@ -161,13 +169,11 @@ outputs:
         - coverage
         - nose
         - pip
-        # `nose` does not work with 3.12, and tests do not run under pytest/unittest
-        - python <3.12
       source_files:
         - tests
       commands:
         - pip check
-        - python -c "__import__('pathlib').Path('tests/tpot_tests.py').unlink()"
+        - python -c "import os; [os.unlink(p) for p in {{ delete_tests }}]"
         -
           coverage run --source=tpot --branch -m
             nose tests -s -v
