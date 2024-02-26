@@ -167,10 +167,10 @@ outputs:
         - tests
       commands:
         - pip check
+        - python -c "__import__('pathlib').Path('tests/tpot_tests.py').unlink()"
         -
           coverage run --source=tpot --branch -m
             nose tests -s -v
-              -I test_tpot.py
               -e test_dask_matches
               -e test_StackingEstimator_4
               -e test_sample_weight_func
