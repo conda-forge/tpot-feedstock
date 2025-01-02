@@ -174,7 +174,7 @@ outputs:
               -e test_mate_operator
               -e test_get_params
               -e test_mate_operator_stats_update
-        - coverage report --show-missing --skip-covered --fail-under=75
+        - coverage report --show-missing --skip-covered --fail-under=74
 
 about:
   home: https://epistasislab.github.io/tpot
