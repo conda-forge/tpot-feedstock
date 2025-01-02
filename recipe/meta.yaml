@@ -17,11 +17,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/T/TPOT/TPOT-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/T/TPOT/TPOT-{{ version }}.tar.gz
   sha256: e92777cf41cbf01ee0439632264d21ef89a1c0b5ec532b73dcb679c3ce67bec1
 
 build:
-  number: 0
+  number: 1
   noarch: python
 
 requirements:
@@ -31,6 +31,8 @@ requirements:
     - {{ min_python }}
 
 test:
+  requires:
+    - python {{ python_min }}
   commands:
     - echo "the subpackages are tested"
 
@@ -61,6 +63,7 @@ outputs:
     test:
       requires:
         - pip
+        - python {{ python_min }}
       imports:
         - tpot
       commands:
