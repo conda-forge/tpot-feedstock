@@ -12,11 +12,14 @@ source:
   url: https://pypi.org/packages/source/t/tpot/TPOT-${{ version }}.tar.gz
   sha256: e97babe15298afbb3304d002ae5537ca530d7048501677b4230c9460730a8634
 
+build:
+  number: 0
+  noarch: python
+
 outputs:
   - package:
       name: tpot
     build:
-      number: 0
       noarch: python
       script:
         - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
