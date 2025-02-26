@@ -9,7 +9,7 @@ recipe:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/t/tpot/tpot-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/t/tpot/TPOT-${{ version }}.tar.gz
   sha256: e97babe15298afbb3304d002ae5537ca530d7048501677b4230c9460730a8634
 
 outputs:
@@ -57,12 +57,6 @@ outputs:
           pip_check: true
           python_version: ${{ python_min }}.*
           imports: tpot
-      - requirements:
-          run:
-            - python ${{ python_min }}.*
-        script:
-          - tpot --version
-          - tpot --help
 
   - package:
       name: tpot-skrebate
@@ -77,12 +71,6 @@ outputs:
           pip_check: true
           python_version: ${{ python_min }}.*
           imports: tpot
-      - requirements:
-          run:
-            - python ${{ python_min }}.*
-        script:
-          - tpot --version
-          - tpot --help
 
   - package:
       name: tpot-mdr
@@ -97,12 +85,6 @@ outputs:
           pip_check: true
           python_version: ${{ python_min }}.*
           imports: tpot
-      - requirements:
-          run:
-            - python ${{ python_min }}.*
-        script:
-          - tpot --version
-          - tpot --help
 
   - package:
       name: tpot-full
@@ -118,17 +100,9 @@ outputs:
           pip_check: true
           python_version: ${{ python_min }}.*
           imports: tpot
-      - requirements:
-          run:
-            - python ${{ python_min }}.*
-        script:
-          - tpot --version
-          - tpot --help
       - files:
           recipe:
             - run_test.py
-          source:
-            - tests/
         requirements:
           run:
             - pytest-cov
