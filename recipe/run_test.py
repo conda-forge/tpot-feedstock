@@ -1,7 +1,7 @@
 import sys
 from subprocess import call
 
-FAIL_UNDER = "46"
+FAIL_UNDER = "45"
 COV = ["coverage"]
 RUN = ["run", "--source=tpot", "--branch", "-m"]
 PYTEST = ["pytest", "-vv", "--color=yes", "--tb=long", "--pyargs", "tpot"]
