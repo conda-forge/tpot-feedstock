@@ -1,4 +1,4 @@
-{% set version = "0.12.2" %}
+{% set version = "1.0.0" %}
 
 # handle undefined PYTHON in `noarch: generic` outputs
 {% if PYTHON is not defined %}{% set PYTHON = "$PYTHON" %}{% endif %}
@@ -12,10 +12,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/T/TPOT/TPOT-{{ version }}.tar.gz
-  sha256: e92777cf41cbf01ee0439632264d21ef89a1c0b5ec532b73dcb679c3ce67bec1
+  sha256: e97babe15298afbb3304d002ae5537ca530d7048501677b4230c9460730a8634
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script:
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
@@ -162,18 +162,7 @@ outputs:
       commands:
         - pip check
         - python -c "import os; [os.unlink(p) for p in {{ delete_tests }}]"
-        -
-          coverage run --source=tpot --branch -m
-            nose tests -s -v
-              -e test_dask_matches
-              -e test_StackingEstimator_4
-              -e test_sample_weight_func
-              -e one_hot_encoder_tests
-              -e test_score_2
-              -e test_varOr
-              -e test_mate_operator
-              -e test_get_params
-              -e test_mate_operator_stats_update
+        - coverage run --source=tpot --branch -m nose tests -s -v -e test_dask_matches -e test_StackingEstimator_4 -e test_sample_weight_func -e one_hot_encoder_tests -e test_score_2 -e test_varOr -e test_mate_operator -e test_get_params -e test_mate_operator_stats_update
         - coverage report --show-missing --skip-covered --fail-under=74
 
 about:
