@@ -9,7 +9,6 @@ Package license: LGPL-3.0-or-later
 
 Summary: A Python tool that automatically creates and optimizes Machine Learning pipelines using genetic programming.
 
-
 Development: https://github.com/EpistasisLab/tpot
 
 Consider TPOT your Data Science Assistant. TPOT is a Python Automated
@@ -30,7 +29,6 @@ should look familiar... if you're familiar with scikit-learn, anyway.
 TPOT is still under active development and we encourage you to check back
 on this repository regularly for updates.
 
-
 Current build status
 ====================
 
@@ -50,12 +48,9 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-tpot-green.svg)](https://anaconda.org/conda-forge/tpot) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tpot.svg)](https://anaconda.org/conda-forge/tpot) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tpot.svg)](https://anaconda.org/conda-forge/tpot) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tpot.svg)](https://anaconda.org/conda-forge/tpot) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-tpot--dask-green.svg)](https://anaconda.org/conda-forge/tpot-dask) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tpot-dask.svg)](https://anaconda.org/conda-forge/tpot-dask) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tpot-dask.svg)](https://anaconda.org/conda-forge/tpot-dask) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tpot-dask.svg)](https://anaconda.org/conda-forge/tpot-dask) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-tpot--full-green.svg)](https://anaconda.org/conda-forge/tpot-full) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tpot-full.svg)](https://anaconda.org/conda-forge/tpot-full) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tpot-full.svg)](https://anaconda.org/conda-forge/tpot-full) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tpot-full.svg)](https://anaconda.org/conda-forge/tpot-full) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-tpot--imblearn-green.svg)](https://anaconda.org/conda-forge/tpot-imblearn) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tpot-imblearn.svg)](https://anaconda.org/conda-forge/tpot-imblearn) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tpot-imblearn.svg)](https://anaconda.org/conda-forge/tpot-imblearn) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tpot-imblearn.svg)](https://anaconda.org/conda-forge/tpot-imblearn) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-tpot--mdr-green.svg)](https://anaconda.org/conda-forge/tpot-mdr) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tpot-mdr.svg)](https://anaconda.org/conda-forge/tpot-mdr) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tpot-mdr.svg)](https://anaconda.org/conda-forge/tpot-mdr) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tpot-mdr.svg)](https://anaconda.org/conda-forge/tpot-mdr) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-tpot--skrebate-green.svg)](https://anaconda.org/conda-forge/tpot-skrebate) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tpot-skrebate.svg)](https://anaconda.org/conda-forge/tpot-skrebate) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tpot-skrebate.svg)](https://anaconda.org/conda-forge/tpot-skrebate) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tpot-skrebate.svg)](https://anaconda.org/conda-forge/tpot-skrebate) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-tpot--torch-green.svg)](https://anaconda.org/conda-forge/tpot-torch) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tpot-torch.svg)](https://anaconda.org/conda-forge/tpot-torch) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tpot-torch.svg)](https://anaconda.org/conda-forge/tpot-torch) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tpot-torch.svg)](https://anaconda.org/conda-forge/tpot-torch) |
 
 Installing tpot
 ===============
@@ -67,16 +62,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `tpot, tpot-dask, tpot-full, tpot-imblearn, tpot-mdr, tpot-skrebate, tpot-torch` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `tpot, tpot-full, tpot-mdr, tpot-skrebate` can be installed with `conda`:
 
 ```
-conda install tpot tpot-dask tpot-full tpot-imblearn tpot-mdr tpot-skrebate tpot-torch
+conda install tpot tpot-full tpot-mdr tpot-skrebate
 ```
 
 or with `mamba`:
 
 ```
-mamba install tpot tpot-dask tpot-full tpot-imblearn tpot-mdr tpot-skrebate tpot-torch
+mamba install tpot tpot-full tpot-mdr tpot-skrebate
 ```
 
 It is possible to list all of the versions of `tpot` available on your platform with `conda`:
