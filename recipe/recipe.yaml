@@ -1,0 +1,170 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+context:
+  version: 1.0.0
+
+recipe:
+  name: tpot
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/t/tpot/tpot-${{ version }}.tar.gz
+  sha256: e97babe15298afbb3304d002ae5537ca530d7048501677b4230c9460730a8634
+
+outputs:
+  - package:
+      name: tpot
+    build:
+      number: 0
+      noarch: python
+      script:
+        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+      python:
+        entry_points:
+          - tpot = tpot:main
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - pip
+        - setuptools
+      run:
+        - configspace >=1.1.1
+        - dask >=2024.4.2
+        - dask-expr >=1.0.12
+        - dask-jobqueue >=0.8.5
+        - dill >=0.3.9
+        - distributed >=2024.4.2
+        - func_timeout >=4.3.5
+        - joblib >=1.1.1
+        - lightgbm >=3.3.3
+        - matplotlib-base >=3.6.2
+        - networkx >=3.0
+        - numpy ==1.26.4
+        - optuna >=3.0.5
+        - pandas >=2.2.0
+        - py-xgboost >=1.7.0
+        - python >=${{ python_min }}
+        - scikit-learn >=1.4.2,<1.6
+        - scipy >=1.3.1
+        - seaborn >=0.13.2
+        - stopit >=1.1.1
+        - tqdm >=4.36.1
+        - traitlets >=5.8.0
+        - update_checker >=0.16
+    tests:
+      - python:
+          pip_check: true
+          python_version: ${{ python_min }}.*
+          imports: tpot
+      - requirements:
+          run:
+            - python ${{ python_min }}.*
+        script:
+          - tpot --version
+          - tpot --help
+
+  - package:
+      name: tpot-skrebate
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("tpot", upper_bound="x.x.x") }}
+        - skrebate >=0.3.4
+    tests:
+      - python:
+          pip_check: true
+          python_version: ${{ python_min }}.*
+          imports: tpot
+      - requirements:
+          run:
+            - python ${{ python_min }}.*
+        script:
+          - tpot --version
+          - tpot --help
+
+  - package:
+      name: tpot-mdr
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("tpot", upper_bound="x.x.x") }}
+        - scikit-mdr >=0.4.4
+    tests:
+      - python:
+          pip_check: true
+          python_version: ${{ python_min }}.*
+          imports: tpot
+      - requirements:
+          run:
+            - python ${{ python_min }}.*
+        script:
+          - tpot --version
+          - tpot --help
+
+  - package:
+      name: tpot-full
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage("tpot-mdr", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("tpot-skrebate", upper_bound="x.x.x") }}
+        - ${{ pin_subpackage("tpot", upper_bound="x.x.x") }}
+    tests:
+      - python:
+          pip_check: true
+          python_version: ${{ python_min }}.*
+          imports: tpot
+      - requirements:
+          run:
+            - python ${{ python_min }}.*
+        script:
+          - tpot --version
+          - tpot --help
+      - files:
+          recipe:
+            - run_test.py
+          source:
+            - tests/
+        requirements:
+          run:
+            - pytest-cov
+            - python ${{ python_min }}
+        script:
+          - python run_test.py
+
+about:
+  license: LGPL-3.0-or-later
+  license_file: LICENSE
+  homepage: https://epistasislab.github.io/tpot
+  repository: https://github.com/EpistasisLab/tpot
+  summary: |
+    A Python tool that automatically creates and optimizes Machine Learning pipelines using genetic programming.
+  description: |
+    Consider TPOT your Data Science Assistant. TPOT is a Python Automated
+    Machine Learning tool that optimizes machine learning pipelines using
+    genetic programming.
+
+    TPOT will automate the most tedious part of machine learning by
+    intelligently exploring thousands of possible pipelines to find the best
+    one for your data.
+
+    Once TPOT is finished searching (or you get tired of waiting), it provides
+    you with the Python code for the best pipeline it found so you can tinker
+    with the pipeline from there.
+
+    TPOT is built on top of scikit-learn, so all of the code it generates
+    should look familiar... if you're familiar with scikit-learn, anyway.
+
+    TPOT is still under active development and we encourage you to check back
+    on this repository regularly for updates.
+
+extra:
+  feedstock-name: tpot
+  recipe-maintainers:
+    - proinsias
+    - bollwyvl
+    - jay-m-dev
