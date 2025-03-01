@@ -50,6 +50,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-tpot-green.svg)](https://anaconda.org/conda-forge/tpot) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tpot.svg)](https://anaconda.org/conda-forge/tpot) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tpot.svg)](https://anaconda.org/conda-forge/tpot) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tpot.svg)](https://anaconda.org/conda-forge/tpot) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-tpot--full-green.svg)](https://anaconda.org/conda-forge/tpot-full) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tpot-full.svg)](https://anaconda.org/conda-forge/tpot-full) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tpot-full.svg)](https://anaconda.org/conda-forge/tpot-full) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tpot-full.svg)](https://anaconda.org/conda-forge/tpot-full) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-tpot--mdr-green.svg)](https://anaconda.org/conda-forge/tpot-mdr) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tpot-mdr.svg)](https://anaconda.org/conda-forge/tpot-mdr) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tpot-mdr.svg)](https://anaconda.org/conda-forge/tpot-mdr) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tpot-mdr.svg)](https://anaconda.org/conda-forge/tpot-mdr) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-tpot--sklearnx-green.svg)](https://anaconda.org/conda-forge/tpot-sklearnx) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tpot-sklearnx.svg)](https://anaconda.org/conda-forge/tpot-sklearnx) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tpot-sklearnx.svg)](https://anaconda.org/conda-forge/tpot-sklearnx) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tpot-sklearnx.svg)](https://anaconda.org/conda-forge/tpot-sklearnx) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-tpot--skrebate-green.svg)](https://anaconda.org/conda-forge/tpot-skrebate) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tpot-skrebate.svg)](https://anaconda.org/conda-forge/tpot-skrebate) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tpot-skrebate.svg)](https://anaconda.org/conda-forge/tpot-skrebate) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tpot-skrebate.svg)](https://anaconda.org/conda-forge/tpot-skrebate) |
 
 Installing tpot
@@ -62,16 +63,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `tpot, tpot-full, tpot-mdr, tpot-skrebate` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `tpot, tpot-full, tpot-mdr, tpot-sklearnx, tpot-skrebate` can be installed with `conda`:
 
 ```
-conda install tpot tpot-full tpot-mdr tpot-skrebate
+conda install tpot tpot-full tpot-mdr tpot-sklearnx tpot-skrebate
 ```
 
 or with `mamba`:
 
 ```
-mamba install tpot tpot-full tpot-mdr tpot-skrebate
+mamba install tpot tpot-full tpot-mdr tpot-sklearnx tpot-skrebate
 ```
 
 It is possible to list all of the versions of `tpot` available on your platform with `conda`:

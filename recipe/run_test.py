@@ -7,11 +7,7 @@ RUN = ["run", "--source=tpot", "--branch", "-m"]
 PYTEST = ["pytest", "-vv", "--color=yes", "--tb=long", "--pyargs", "tpot"]
 REPORT = ["report", "--show-missing", "--skip-covered", f"--fail-under={FAIL_UNDER}"]
 
-SKIPS = [
-    # https://github.com/conda-forge/tpot-feedstock/pull/41
-    # KeyError: 'RandomForestClassifier_sklearnex'
-    "loop_through_groupnames",
-]
+SKIPS = []
 
 if SKIPS:
     SKIP_OR = " or ".join(SKIPS)
