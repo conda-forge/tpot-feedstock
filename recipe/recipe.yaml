@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: 1.0.0
+  version: "1.1.0"
 
 recipe:
   name: tpot
@@ -10,10 +10,10 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/t/tpot/TPOT-${{ version }}.tar.gz
-  sha256: e97babe15298afbb3304d002ae5537ca530d7048501677b4230c9460730a8634
+  sha256: 9c2e37ce0c160e6fdb57bd738973cd4fd89952cd024ba2f9fb9ce61b70cd1883
 
 build:
-  number: 1
+  number: 0
   noarch: python
 
 outputs:
