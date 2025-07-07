@@ -3,6 +3,7 @@ schema_version: 1
 
 context:
   version: "1.1.0"
+  python_max_check: "3.13"
 
 recipe:
   name: tpot
@@ -43,12 +44,12 @@ outputs:
         - lightgbm >=3.3.3
         - matplotlib-base >=3.6.2
         - networkx >=3.0
-        - numpy ==1.26.4
+        - numpy >=1.26.4
         - optuna >=3.0.5
         - pandas >=2.2.0
-        - py-xgboost >=1.7.0
+        - py-xgboost >=3.0.0
         - python >=${{ python_min }}
-        - scikit-learn >=1.4.2,<1.6
+        - scikit-learn >=1.6
         - scipy >=1.3.1
         - seaborn >=0.13.2
         - stopit >=1.1.1
@@ -57,9 +58,11 @@ outputs:
         - update_checker >=0.16
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: tpot
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_max_check }}.*
 
   - package:
       name: tpot-mdr
@@ -71,9 +74,11 @@ outputs:
         - scikit-mdr >=0.4.4
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: tpot
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_max_check }}.*
 
   - package:
       name: tpot-sklearnx
@@ -85,9 +90,11 @@ outputs:
         - scikit-learn-intelex >=2023.2.1
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: tpot
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_max_check }}.*
 
   - package:
       name: tpot-skrebate
@@ -99,9 +106,11 @@ outputs:
         - skrebate >=0.3.4
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: tpot
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_max_check }}.*
 
   - package:
       name: tpot-full
@@ -115,9 +124,11 @@ outputs:
         - ${{ pin_subpackage("tpot", upper_bound="x.x.x") }}
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: tpot
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - ${{ python_max_check }}.*
       - files:
           recipe:
             - run_test.py
