@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   version: "1.1.0"
-  python_max_check: "3.13"
+  python_max_check: "3.14"
 
 recipe:
   name: tpot
@@ -14,7 +14,7 @@ source:
   sha256: 9c2e37ce0c160e6fdb57bd738973cd4fd89952cd024ba2f9fb9ce61b70cd1883
 
 build:
-  number: 0
+  number: 1
   noarch: python
 
 outputs:
@@ -29,8 +29,8 @@ outputs:
           - tpot = tpot:main
     requirements:
       host:
-        - python ${{ python_min }}.*
         - pip
+        - python ${{ python_min }}.*
         - setuptools
       run:
         - configspace >=1.1.1
@@ -79,6 +79,10 @@ outputs:
           python_version:
             - ${{ python_min }}.*
             - ${{ python_max_check }}.*
+    about:
+      summary: >
+        A Python tool that automatically creates and optimizes Machine Learning
+        pipelines using genetic programming. (with [mdr])
 
   - package:
       name: tpot-sklearnx
@@ -90,11 +94,15 @@ outputs:
         - scikit-learn-intelex >=2023.2.1
     tests:
       - python:
-          imports: tpot
+          imports: tpot.config.get_configspace
           pip_check: true
           python_version:
             - ${{ python_min }}.*
             - ${{ python_max_check }}.*
+    about:
+      summary: >
+        A Python tool that automatically creates and optimizes Machine Learning
+        pipelines using genetic programming. (with [sklearnex)
 
   - package:
       name: tpot-skrebate
@@ -111,6 +119,10 @@ outputs:
           python_version:
             - ${{ python_min }}.*
             - ${{ python_max_check }}.*
+    about:
+      summary: >
+        A Python tool that automatically creates and optimizes Machine Learning
+        pipelines using genetic programming. (with [skrebate])
 
   - package:
       name: tpot-full
@@ -135,15 +147,20 @@ outputs:
         requirements:
           run:
             - pytest-cov
-            - python ${{ python_min }}
+            - python >=${{ python_min }}
         script:
           - python run_test.py
+    about:
+      summary: >
+        A Python tool that automatically creates and optimizes Machine Learning
+        pipelines using genetic programming. (with all [extras])
 
 about:
   license: LGPL-3.0-or-later
   license_file: LICENSE
-  homepage: https://epistasislab.github.io/tpot
+  homepage: https://pypi.org/project/tpot
   repository: https://github.com/EpistasisLab/tpot
+  documentation: https://epistasislab.github.io/tpot
   summary: |
     A Python tool that automatically creates and optimizes Machine Learning pipelines using genetic programming.
   description: |
