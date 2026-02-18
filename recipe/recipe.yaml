@@ -14,7 +14,7 @@ source:
   sha256: 9c2e37ce0c160e6fdb57bd738973cd4fd89952cd024ba2f9fb9ce61b70cd1883
 
 build:
-  number: 0
+  number: 1
   noarch: python
 
 outputs:
@@ -135,7 +135,7 @@ outputs:
         requirements:
           run:
             - pytest-cov
-            - python ${{ python_min }}
+            - python >=${{ python_min }}
         script:
           - python run_test.py
 
